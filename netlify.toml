@@ -2,6 +2,12 @@
   publish = "."
 
 [[redirects]]
+  from = "https://www.hwaseong-drain.co.kr/*"
+  to = "https://hwaseong-drain.co.kr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/:splat/"
   status = 301
