@@ -2,10 +2,10 @@
   publish = "."
 
 [[redirects]]
-  from = "https://www.hwaseong-drain.co.kr/*"
-  to = "https://hwaseong-drain.co.kr/:splat"
+  from = "/*"
+  to = "/:splat/"
   status = 301
-  force = true
+  force = false
 
 [build.environment]
   NODE_VERSION = "18"
