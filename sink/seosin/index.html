@@ -114,7 +114,375 @@ footer{background:#0a1628;color:rgba(255,255,255,.6);padding:30px 20px;text-alig
 footer strong{color:#fff;}
 .ft{position:fixed;bottom:24px;right:20px;background:var(--p);color:#fff;text-decoration:none;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 20px rgba(26,74,138,.4);z-index:200;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(26,74,138,.4);}50%{box-shadow:0 4px 30px rgba(26,74,138,.7);}}
-@media(max-width:640px){.ph h1{font-size:22px;}.htel span{display:none;}.photo-grid{grid-template-columns:repeat(2,1fr);}}</style>
+@media(max-width:640px){.ph h1{font-size:22px;}.htel span{display:none;}.photo-grid{grid-template-columns:repeat(2,1fr);}}
+/* ===== 큐카드 ===== */
+.ph-inner { display:flex; align-items:flex-start; gap:24px; max-width:1000px; margin:0 auto; }
+.ph-text { flex:1; min-width:0; }
+.qcard-wrap {
+  background:rgba(255,255,255,.13);
+  border:1.5px solid rgba(255,255,255,.3);
+  border-radius:16px;
+  padding:20px 18px;
+  min-width:180px;
+  flex-shrink:0;
+  backdrop-filter:blur(4px);
+}
+.qcard-header { text-align:center; margin-bottom:14px; }
+.qcard-time-label { font-size:11px; color:rgba(255,255,255,.7); margin-bottom:2px; letter-spacing:.5px; }
+.qcard-min { font-size:40px; font-weight:800; color:#fff; line-height:1; }
+.qcard-min span { font-size:18px; font-weight:700; }
+.qcard-area { font-size:11px; color:rgba(255,255,255,.6); margin-top:2px; }
+.qcard-items { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; }
+.qcard-items li { font-size:12px; color:rgba(255,255,255,.92); display:flex; align-items:center; gap:6px; }
+.qcard-items li::before { content:"✔"; color:#e8a020; font-size:12px; flex-shrink:0; }
+@media(max-width:640px){
+  .ph-inner { flex-direction:column; }
+  .qcard-wrap { min-width:unset; width:100%; }
+}
+
+/* ===== TOC ===== */
+.toc-box {
+  background:#eef3fb;
+  border:1px solid #c5d5ee;
+  border-radius:10px;
+  padding:14px 18px;
+  margin-bottom:28px;
+  font-size:13px;
+}
+.toc-box-title { font-weight:700; color:#1a4a8a; margin-bottom:8px; font-size:13px; }
+.toc-box ol { margin:0; padding-left:18px; }
+.toc-box li { margin-bottom:4px; }
+.toc-box a { color:#1a4a8a; text-decoration:none; }
+.toc-box a:hover { text-decoration:underline; }
+
+/* ===== 고객 후기 ===== */
+.rv-box { margin-bottom:36px; }
+.rv-item {
+  background:#fff;
+  border:1px solid #dde3ed;
+  border-radius:10px;
+  padding:18px 20px;
+  margin-bottom:10px;
+}
+.rv-star { color:#e8a020; font-size:15px; margin-bottom:6px; }
+.rv-name { font-size:12px; font-weight:700; color:#1a4a8a; margin-bottom:6px; }
+.rv-text { font-size:14px; color:#1e2430; line-height:1.7; }
+
+/* ===== 해시태그 ===== */
+.hashtags { font-size:12px; color:#5a6478; margin-bottom:28px; line-height:2.2; word-break:break-all; }
+.hashtags a { color:#1a4a8a; text-decoration:none; margin-right:6px; }
+
+/* ===== 이미지 정사각형 ===== */
+.photo-grid img,
+.work-photo-grid img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px; }
+.photo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px; }
+.work-photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px; margin-bottom:28px; }
+
+/* ===== 장비 사진 ===== */
+.equip-photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-bottom:28px; }
+.equip-photo-grid img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px; }
+
+/* ===== WORK-STORY ===== */
+.story-box {
+  background:#fff;
+  border:1px solid #dde3ed;
+  border-left:4px solid #1a4a8a;
+  border-radius:0 10px 10px 0;
+  padding:20px 22px;
+  margin-bottom:28px;
+  font-size:14px;
+  line-height:1.85;
+  color:#1e2430;
+}
+.story-box-title { font-weight:700; color:#1a4a8a; margin-bottom:10px; font-size:15px; }
+
+/* ===== LOCAL-INFO ===== */
+.local-info-box {
+  background:#f0f5ff;
+  border:1px solid #c5d5ee;
+  border-radius:10px;
+  padding:20px 22px;
+  margin-bottom:28px;
+  font-size:14px;
+  line-height:1.85;
+}
+.local-info-title { font-weight:700; color:#0f2d5a; margin-bottom:10px; font-size:15px; }
+
+/* ===== 키워드 유도 섹션 ===== */
+.kw-section { background:#fff; border:1px solid #dde3ed; border-radius:10px; padding:20px 22px; margin-bottom:28px; }
+.kw-title { font-size:15px; font-weight:700; color:#1a4a8a; margin-bottom:12px; }
+.kw-grid { display:flex; flex-wrap:wrap; gap:8px; }
+.kw-chip {
+  background:#eef3fb;
+  border:1px solid #c5d5ee;
+  border-radius:50px;
+  padding:6px 14px;
+  font-size:13px;
+  color:#1a4a8a;
+  font-weight:600;
+  text-decoration:none;
+}
+.kw-chip:hover { background:#1a4a8a; color:#fff; }
+
+/* ===== PRICE wrap 수정 ===== */
+.cost-wrap {
+  background:#fff;
+  border:1px solid #dde3ed;
+  border-radius:10px;
+  padding:18px 20px;
+  margin-bottom:8px;
+}
+
+/* ===== 레이아웃 좌쏠림 수정 ===== */
+.ct { max-width:1000px; margin:0 auto; padding:36px 20px; }
+
+
+/* ===== process-wrap ===== */
+.process-wrap {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:12px;
+  margin-bottom:36px;
+}
+.pstep {
+  background:#fff;
+  border:1px solid var(--b);
+  border-radius:var(--r);
+  padding:18px 14px;
+  text-align:center;
+}
+.psn {
+  width:34px; height:34px;
+  border-radius:50%;
+  background:var(--p);
+  color:#fff;
+  font-size:14px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 10px;
+}
+.pstep strong { font-size:14px; font-weight:700; color:var(--t); display:block; margin-bottom:4px; }
+.pstep p { font-size:12px; color:var(--m); line-height:1.5; }
+
+/* ===== tr2 (time-box row) ===== */
+.tr2 {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid var(--b);
+  font-size:15px;
+}
+.tr2:last-child { border-bottom:none; }
+.tl { color:var(--m); }
+.tv { font-weight:700; color:var(--t); }
+
+/* ===== NEARBY 칩 스타일 ===== */
+.nearby {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:36px;
+}
+.nearby a {
+  background:var(--bg);
+  border:1px solid var(--b);
+  border-radius:50px;
+  padding:7px 16px;
+  font-size:13px;
+  text-decoration:none;
+  color:var(--t);
+  transition:all .2s;
+  white-space:nowrap;
+}
+.nearby a:hover { background:var(--p); color:#fff; border-color:var(--p); }
+
+
+/* ===== FAQ fq/fa (기존 faq-q/faq-a와 매핑) ===== */
+.fq {
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #1e2430;
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: default;
+  border-radius: 8px 8px 0 0;
+}
+.fq::before {
+  content: 'Q';
+  background: #1a4a8a;
+  color: #fff;
+  width: 24px; height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  flex-shrink: 0; margin-top: 1px;
+}
+.fa {
+  padding: 0 18px 14px 50px;
+  font-size: 14px;
+  color: #5a6478;
+  line-height: 1.7;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+}
+
+/* ===== about-box / ab-body ===== */
+.about-box {
+  background: #fff;
+  border: 1px solid #dde3ed;
+  border-radius: 10px;
+  padding: 22px 26px;
+  margin-bottom: 28px;
+  line-height: 1.9;
+  font-size: 15px;
+}
+.ab-intro { font-weight: 700; color: #1a4a8a; margin-bottom: 12px; display: block; }
+.ab-body { color: #1e2430; }
+
+/* ===== mistake-box / mi / mx / mt ===== */
+.mistake-box {
+  background: #fff;
+  border: 1px solid #dde3ed;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+}
+.mi {
+  display: flex; gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #dde3ed;
+  align-items: flex-start;
+}
+.mi:last-child { border-bottom: none; }
+.mx { color: #c0392b; font-size: 16px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.mt { font-size: 14px; color: #1e2430; line-height: 1.6; }
+.mt strong { color: #1a4a8a; }
+
+/* ===== equip-photos (빈 섹션 숨김) ===== */
+.equip-photos { display: none; }
+
+/* ===== region-box / tip-box ===== */
+.region-box {
+  background: #fdf3e0;
+  border-left: 4px solid #e8a020;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+  border-radius: 0 8px 8px 0;
+  color: #1e2430;
+}
+.region-box strong { color: #1a4a8a; }
+.tip-box {
+  background: #fdf3e0;
+  border-left: 4px solid #e8a020;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  font-size: 15px;
+  line-height: 1.8;
+  border-radius: 0 8px 8px 0;
+  color: #1e2430;
+}
+
+/* ===== bldg-grid / bldg-chip ===== */
+.bldg-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.bldg-chip {
+  background: #1a4a8a; color: #fff;
+  padding: 6px 14px; border-radius: 50px;
+  font-size: 13px; font-weight: 600;
+}
+
+/* ===== case-grid / case-card ===== */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px; margin-bottom: 28px;
+}
+.case-card {
+  background: #fff; border: 1px solid #dde3ed;
+  border-radius: 10px; padding: 18px 20px;
+}
+.case-card h4 { font-size: 15px; font-weight: 700; color: #1a4a8a; margin-bottom: 8px; }
+.case-card p { font-size: 14px; color: #5a6478; line-height: 1.6; }
+
+/* ===== service-area-box / sa-chip ===== */
+.service-area-box {
+  background: #fff; border: 1px solid #dde3ed;
+  border-radius: 10px; padding: 18px 20px; margin-bottom: 28px;
+}
+.service-area-box h3 { font-size: 16px; font-weight: 700; color: #1a4a8a; margin-bottom: 12px; }
+.sa-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.sa-chip {
+  background: #f7f9fc; border: 1px solid #dde3ed;
+  border-radius: 50px; padding: 6px 14px;
+  font-size: 13px; color: #1e2430;
+}
+
+/* ===== season-grid / season-card ===== */
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px; margin-bottom: 28px;
+}
+.season-card {
+  background: #fff; border: 1px solid #dde3ed;
+  border-radius: 10px; padding: 16px; text-align: center;
+}
+.season-card .si { font-size: 26px; margin-bottom: 8px; }
+.season-card h4 { font-size: 14px; font-weight: 700; color: #1e2430; margin-bottom: 6px; }
+.season-card p { font-size: 12px; color: #5a6478; line-height: 1.5; }
+
+/* ===== nearby-box / nc / nk ===== */
+.nearby-box {
+  background: #fff; border: 1px solid #dde3ed;
+  border-radius: 10px; padding: 20px 22px; margin-bottom: 28px;
+}
+.nearby-box h3 { font-size: 16px; font-weight: 700; color: #1e2430; margin-bottom: 12px; }
+.nc { display: flex; flex-wrap: wrap; gap: 8px; }
+.nk {
+  background: #f7f9fc; border: 1px solid #dde3ed;
+  border-radius: 50px; padding: 6px 14px;
+  font-size: 13px; text-decoration: none; color: #1e2430;
+  transition: all .2s;
+}
+.nk:hover { background: #1a4a8a; color: #fff; }
+
+/* ===== cost-wrap / cr / cl / cp / cn ===== */
+.cost-wrap {
+  background: #fff; border: 1px solid #dde3ed;
+  border-radius: 10px; padding: 18px 20px; margin-bottom: 8px;
+}
+.cr {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid #dde3ed; font-size: 15px;
+}
+.cr:last-child { border-bottom: none; }
+.cl { color: #5a6478; }
+.cp { font-weight: 700; color: #1a4a8a; }
+.cn { font-size: 13px; color: #5a6478; margin-bottom: 28px; padding: 8px 0; }
+
+/* ===== cb / ctel (CTA 배너) ===== */
+.cb {
+  background: linear-gradient(135deg, #e8a020 0%, #f0b030 100%);
+  text-align: center; padding: 44px 20px;
+}
+.cb h2 { font-size: 22px; font-weight: 800; color: #0f2d5a; margin-bottom: 8px; word-break: keep-all; }
+.cb p { font-size: 14px; color: #0f2d5a; margin-bottom: 20px; opacity: .85; }
+.ctel {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #0f2d5a; color: #fff;
+  text-decoration: none; font-size: 20px; font-weight: 800;
+  padding: 14px 36px; border-radius: 50px;
+}
+
+/* ===== faq-list 마진 ===== */
+.faq-list { margin-bottom: 28px; }
+
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://hwaseong-drain.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "싱크대 뚫음", "item": "https://hwaseong-drain.co.kr/sink/"}, {"@type": "ListItem", "position": 3, "name": "서신면 싱크대막힘", "item": "https://hwaseong-drain.co.kr/sink/seosin/"}]}</script>
 <link rel="icon" href="/favicon.ico">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "화성시 하수구막힘 당일 출동 가능한가요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 화성시 전 지역 당일 출동 가능해요. 접수 후 평균 30분 내 도착해요."}}, {"@type": "Question", "name": "하수구 뚫기 비용이 얼마예요?", "acceptedAnswer": {"@type": "Answer", "text": "현장 확인 후 정확한 비용을 안내드려요. 작업 전 반드시 견적 동의 후 시작해요."}}, {"@type": "Question", "name": "주말·야간에도 출동하나요?", "acceptedAnswer": {"@type": "Answer", "text": "365일 24시간 연중무휴예요."}}]}</script>
@@ -123,11 +491,26 @@ footer strong{color:#fff;}
 <div class="eb">📞 지금 바로 연결 &nbsp;<a href="tel:07080187057">070-8018-7057</a>&nbsp; · 연중무휴 24시간</div>
 <header><div class="hi"><a class="logo" href="/">화성<span>배관</span>케어</a><a class="htel" href="tel:07080187057">📞 <span>070-8018-7057</span></a></div></header>
 <div class="ph"><div class="phi">
+  <div class="ph-inner">
+    <div class="ph-text">
   <div class="bc"><a href="/">홈</a> › <a href="/sink/">싱크대막힘</a> › 서신면</div>
   <h1><em>서신면</em> 싱크대 막힘 뚫는 공사</h1>
   <p class="ph-sub">만세구 서신면 단독주택 · 펜션·숙박 · 상가 전문 · 365일 24시간 · 현장 견적 후 작업</p>
   <a class="ph-cta" href="tel:07080187057">📞 070-8018-7057</a>
-</div></div>
+
+    </div>
+    <div class="qcard-wrap">
+  <div class="qcard-header">
+    <div class="qcard-time-label">평균 도착</div>
+    <div class="qcard-min">26<span>분</span></div>
+    <div class="qcard-area">서신면 기준</div>
+  </div>
+  <ul class="qcard-items"><li>고객님 동의 후 작업 시작</li><li>방문비 청구 없음</li><li>365일 24시간 출동</li><li>꼭 필요한 것만 진행</li></ul>
+</div>
+  </div>
+</div>
+
+</div>
 
 <div class="ct">
   <div class="sl">이 지역의 다른 서비스</div>
@@ -140,19 +523,28 @@ footer strong{color:#fff;}
 
   <div class="sl">CAUSES</div>
   <h2 class="st">서신면 싱크대막힘 주요 원인</h2>
-  <div class="causes-grid"><div class="cause-card"><div class="ci">🥩</div><h4>동물성 기름</h4><p>고기·생선 기름이 배관 내벽에 달라붙습니다.</p></div><div class="cause-card"><div class="ci">☕</div><h4>커피 찌꺼기</h4><p>커피 가루가 배관 굴곡부에 누적됩니다.</p></div><div class="cause-card"><div class="ci">🫧</div><h4>세제 거품 누적</h4><p>주방세제 거품이 배관 내에 쌓입니다.</p></div><div class="cause-card"><div class="ci">🔧</div><h4>이음부 막힘</h4><p>배관 이음 부위에 이물질이 끼입니다.</p></div></div><h4>기름때 고착</h4><p>조리 후 기름이 배관 내벽에 굳어 점차 통로를 막습니다.</p></div>
-<div class="cause-card"><div class="ci">🍳</div><h4>음식물 찌꺼기</h4><p>거름망을 통과한 작은 찌꺼기가 배관에 쌓입니다.</p></div>
-<div class="cause-card"><div class="ci">🧻</div><h4>세제 잔여물</h4><p>세제가 기름과 결합해 굳어지는 경우가 있습니다.</p></div>
-<div class="cause-card"><div class="ci">🔧</div><h4>트랩 오염</h4><p>S자 트랩 내부에 슬러지가 쌓여 흐름이 막힙니다.</p></div>
-</div>
+  <div class="causes-grid"><div class="cause-card"><div class="ci">🍳</div><h4>기름·음식 잔여</h4><p>조리 기름이 배관 내벽에 달라붙어 굳습니다.</p></div><div class="cause-card"><div class="ci">🧽</div><h4>세제 잔여물</h4><p>세제가 배관 내벽에 굳어 내경을 좁힙니다.</p></div><div class="cause-card"><div class="ci">🍜</div><h4>음식물 찌꺼기</h4><p>라면·볶음 요리 잔여물이 배관에 쌓입니다.</p></div><div class="cause-card"><div class="ci">🔧</div><h4>노후 배관</h4><p>오래된 배관 스케일이 흐름을 방해합니다.</p></div></div>
 
-  <div class="sl">DIAGNOSIS</div>
+<div class="sl">DIAGNOSIS</div>
   <h2 class="st">지금 이런 증상이라면?</h2>
   <div class="diag-box"><div class="di"><div class="dd red"></div><div class="dt"><strong style="color:#1a4a8a">즉시 연락 필요</strong> — 수산 시설 싱크대 완전 폐색</div></div><div class="di"><div class="dd red"></div><div class="dt"><strong style="color:#1a4a8a">즉시 연락 필요</strong> — 어류 오염물 역류로 작업장 오염</div></div><div class="di"><div class="dd red"></div><div class="dt"><strong style="color:#1a4a8a">즉시 연락 필요</strong> — 해양성 오염으로 일반 세정제 효과 없는 상태</div></div><div class="di"><div class="dd green"></div><div class="dt"><strong style="color:#6a6a2a">자가 시도 가능</strong> — 배수 느림 초기 → 거름망 청소 후 즉시 화성배관케어에 연락</div></div></div>
 
-  <div class="sl">GALLERY</div><h2 class="st">화성시 싱크대막힘 실제 작업 사진</h2><div class="gl"><div class="gi"><img src="/images/sink/hwaseong-sink-work-02.jpg" alt="화성시 싱크대막힘 실제 작업 사진 1 | 화성배관케어" loading="lazy" width="400" height="300"></div><div class="gi"><img src="/images/sink/hwaseong-sink-work-11.jpg" alt="화성시 싱크대막힘 실제 작업 사진 2 | 화성배관케어" loading="lazy" width="400" height="300"></div><div class="gi"><img src="/images/sink/hwaseong-sink-work-08.jpg" alt="화성시 싱크대막힘 실제 작업 사진 3 | 화성배관케어" loading="lazy" width="400" height="300"></div><div class="gi"><img src="/images/sink/hwaseong-sink-work-03.jpg" alt="화성시 싱크대막힘 실제 작업 사진 4 | 화성배관케어" loading="lazy" width="400" height="300"></div></div>
-<div class="sl">FAQ</div><h2 class="st">화성시 싱크대막힘 자주 묻는 질문</h2><div class="faq-item"><div class="fq">Q. 막힘이 반복돼요.</div><div class="fa">A. 트랩 구조 또는 배관 경사 문제일 수 있어요.</div></div><div class="faq-item"><div class="fq">Q. 식당 싱크대도 처리해요?</div><div class="fa">A. 네, 긴급 출동 가능해요.</div></div><div class="faq-item"><div class="fq">Q. 트랩 교체도 해줘요?</div><div class="fa">A. 네, 트랩 교체와 세척을 병행해요.</div></div><div class="faq-item"><div class="fq">Q. 고압세척 꼭 필요한가요?</div><div class="fa">A. 기름때 고착 시 필요해요.</div></div>
+  <div class="sl">FAQ</div><h2 class="st">화성시 싱크대막힘 자주 묻는 질문</h2><div class="faq-item"><div class="fq">Q. 막힘이 반복돼요.</div><div class="fa">A. 트랩 구조 또는 배관 경사 문제일 수 있어요.</div></div><div class="faq-item"><div class="fq">Q. 식당 싱크대도 처리해요?</div><div class="fa">A. 네, 긴급 출동 가능해요.</div></div><div class="faq-item"><div class="fq">Q. 트랩 교체도 해줘요?</div><div class="fa">A. 네, 트랩 교체와 세척을 병행해요.</div></div><div class="faq-item"><div class="fq">Q. 고압세척 꼭 필요한가요?</div><div class="fa">A. 기름때 고착 시 필요해요.</div></div>
 <div class="sl">TIME</div><h2 class="st">작업 소요 시간</h2><div class="time-box"><div class="tr2"><span class="tl">단순 막힘</span><span class="tv">20~40분</span></div><div class="tr2"><span class="tl">기름때 고압세척</span><span class="tv">1~1시간 30분</span></div><div class="tr2"><span class="tl">트랩 교체</span><span class="tv">30분~1시간</span></div></div>
+<div class="sl">WORK PHOTOS</div>
+<h2 class="st">서신면 싱크대막힘 실제 작업 사진</h2>
+<div class="photo-grid">
+<img src="/images/sink/hwaseong-sink-work-05.jpg" alt="서신면 싱크대막힘 실제 작업 사진 1 | 화성배관케어" loading="lazy">
+<img src="/images/sink/hwaseong-sink-work-08.jpg" alt="서신면 싱크대막힘 실제 작업 사진 2 | 화성배관케어" loading="lazy">
+</div>
+
+<div class="sl">EQUIPMENT</div>
+<h2 class="st">화성배관케어 장비 사진</h2>
+<div class="equip-photo-grid">
+<img src="/images/sink/hwaseong-sink-work-05.jpg" alt="화성배관케어 전문 장비 1" loading="lazy">
+<img src="/images/sink/hwaseong-sink-work-10.jpg" alt="화성배관케어 전문 장비 2" loading="lazy">
+<img src="/images/sink/hwaseong-sink-work-03.jpg" alt="화성배관케어 전문 장비 3" loading="lazy">
+</div>
 <div class="sl">CASES</div><h2 class="st">화성시 실제 작업 사례</h2><div class="about-box"><p class="ab-body" style="white-space:pre-line">화성시 반복 막힘 근본 해결. 3개월마다 반복되던 싱크대막힘을 트랩 구조 문제로 파악하고 교체 후 재발이 없어졌어요.</p></div>
 <div class="sl">EQUIPMENT</div><h2 class="st">전문 장비 보유</h2><div class="equip-photos"></div>
 <div class="sl">PROCESS</div><h2 class="st">화성시 출장 진행 순서</h2><div class="process-wrap"><div class="pstep"><div class="psn">1</div><strong>전화 접수</strong><p>증상 파악</p></div><div class="pstep"><div class="psn">2</div><strong>현장 출동</strong><p>장비 준비</p></div><div class="pstep"><div class="psn">3</div><strong>현장 도착</strong><p>상태 점검</p></div><div class="pstep"><div class="psn">4</div><strong>비용 안내</strong><p>견적 동의</p></div><div class="pstep"><div class="psn">5</div><strong>작업 시작</strong><p>동의 후 진행</p></div><div class="pstep"><div class="psn">6</div><strong>완료 확인</strong><p>테스트 후 마무리</p></div></div>
@@ -164,28 +556,6 @@ footer strong{color:#fff;}
 <div class="case-card"><h4>📋 해안가 음식점 배관 부식 누수</h4><p>서신면 해안가 음식점에서 염분 부식으로 배관 연결부에서 누수가 발생한 사례입니다.</p></div>
 <div class="case-card"><h4>📋 단독주택 지하 매설 배관 부식 막힘</h4><p>서신면 단독주택에서 지하 매설 배관이 부식되어 막힘과 누수가 동시에 발생한 사례입니다.</p></div>
 </div>
-
-  <div class="sl">WORK PHOTOS</div>
-  <h2 class="st">서신면 주방 하수구 막힘 실제 작업 사진</h2>
-  <div class="photo-grid"><img src="/images/sink/hwaseong-sink-work-10.jpg" alt="서신면 싱크대 역류 작업 현장" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
-<img src="/images/sink/hwaseong-sink-work-11.jpg" alt="서신면 싱크대 배수 막힘 작업 현장" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
-<img src="/images/sink/hwaseong-sink-work-01.jpg" alt="서신면 주방 하수구 막힘 작업 현장" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
-</div>
-  <details style="margin-bottom:36px;">
-    <summary style="cursor:pointer;padding:12px 16px;background:#fff;border:1px solid var(--b);border-radius:8px;font-weight:600;font-size:14px;color:var(--p);">📷 작업 사진 전체 보기 (11장)</summary>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px;"><img src="/images/sink/hwaseong-sink-work-01.jpg" alt="서신면 씽크대 막힘 실제 작업 사진 1" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-02.jpg" alt="서신면 주방 하수구 막힘 실제 작업 사진 2" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-03.jpg" alt="서신면 싱크대 배수구 막힘 실제 작업 사진 3" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-04.jpg" alt="서신면 주방 하수구 막힘 실제 작업 사진 4" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-05.jpg" alt="서신면 주방 배관 폐색 실제 작업 사진 5" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-06.jpg" alt="서신면 싱크대 배수구 막힘 실제 작업 사진 6" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-07.jpg" alt="서신면 싱크대 배수 지연 실제 작업 사진 7" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-08.jpg" alt="서신면 싱크대 역류 실제 작업 사진 8" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-09.jpg" alt="서신면 싱크대 역류 실제 작업 사진 9" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-10.jpg" alt="서신면 주방 배관 폐색 실제 작업 사진 10" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-<img src="/images/sink/hwaseong-sink-work-11.jpg" alt="서신면 씽크대 막힘 실제 작업 사진 11" loading="lazy" style="width:100%;height:130px;object-fit:cover;border-radius:6px;">
-</div>
-  </details>
 
   <div class="sl">FAQ</div>
   <h2 class="st">서신면 싱크대 배수구 막힘 자주 묻는 질문</h2>
@@ -220,7 +590,14 @@ footer strong{color:#fff;}
   <p>365일 24시간 · 서신면 단독주택 · 펜션·숙박 전문 출장 · 현장 견적 후 작업</p>
   <a class="ctel" href="tel:07080187057">📞 070-8018-7057</a>
 </div>
-<div class="sl">NEARBY</div><h2 class="st">화성시 인근 지역도 출장해요</h2><div class="nearby"><a href="/sink/saesol/">saesol 싱크대막힘</a><a href="/sink/jinae/">jinae 싱크대막힘</a><a href="/sink/gibae/">gibae 싱크대막힘</a><a href="/sink/hwasan/">hwasan 싱크대막힘</a><a href="/sink/hyangnam/">hyangnam 싱크대막힘</a><a href="/sink/yanggam/">yanggam 싱크대막힘</a></div>
-<footer><strong>화성배관케어</strong><br>화성시 하수구·변기·씽크대 막힘, 누수탐지, 교체 전문<br>대표전화: 070-8018-7057 · 연중무휴 24시간<br>© 화성배관케어. All rights reserved.</footer>
+<div class="sl">NEARBY</div><h2 class="st">화성시 인근 지역도 출장해요</h2><div class="nearby"><a href="/sink/saesol/">새솔동 싱크대막힘</a><a href="/sink/jinae/">진안동 싱크대막힘</a><a href="/sink/gibae/">기배동 싱크대막힘</a><a href="/sink/hwasan/">화산동 싱크대막힘</a><a href="/sink/hyangnam/">향남읍 싱크대막힘</a><a href="/sink/yanggam/">양감면 싱크대막힘</a></div>
+<footer>
+  <strong>화성배관케어</strong><br>
+  경기도 화성시 병점구 반월동 869 4층<br>
+  사업자등록번호: 169-13-03096<br>
+  화성시 하수구·변기·싱크대막힘, 누수탐지, 교체 전문<br>
+  대표전화: 070-8018-7057 · 연중무휴 24시간<br>
+  © 화성배관케어. All rights reserved.
+</footer>
 <a class="ft" href="tel:07080187057" title="전화 연결">📞</a>
 </body></html>
