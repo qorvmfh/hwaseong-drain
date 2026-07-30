@@ -7,17 +7,36 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/*"
-  to = "/:splat/"
-  status = 301
-  force = false
+# ⚠️ "/*" → "/:splat/" 룰 제거 — 서비스 인덱스 404 원인
 
-[build.environment]
-  NODE_VERSION = "18"
-
+# 기본 보안 헤더
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
+    X-Robots-Tag = "index, follow"
+
+# HTML: 항상 최신 버전
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# 이미지: 1주일 캐시 (로딩속도 핵심)
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# sitemap / robots
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
